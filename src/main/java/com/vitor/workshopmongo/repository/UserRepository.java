@@ -1,5 +1,11 @@
 package com.vitor.workshopmongo.repository;
 
-public class UserRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+import com.vitor.workshopmongo.domain.User;
+
+@Repository
+public interface UserRepository extends MongoRepository<User, String>{
 
 }
