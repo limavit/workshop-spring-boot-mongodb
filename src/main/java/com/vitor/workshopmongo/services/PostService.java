@@ -13,23 +13,24 @@ import com.vitor.workshopmongo.service.exception.ObjectNotFoundException;
 @Service
 public class PostService {
 	@Autowired
-	private PostRepository PostRepository;
+	private PostRepository postRepository;
 	public List<Post> findAll(){
-		return PostRepository.findAll();
+		return postRepository.findAll();
 	}
 	public Post findById(String id) {
-		Optional<Post> obj = PostRepository.findById(id);
+		Optional<Post> obj = postRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 	public Post insert(Post obj) {
-		return PostRepository.insert(obj);
+		return postRepository.insert(obj);
 		
 	}
 	public void delete(String id) {
-		PostRepository.deleteById(id);
+		postRepository.deleteById(id);
 	} 
 	public List<Post> findByTitle(String text){
-		return PostRepository.findByTitleContainingIgnoreCase(text);
+		//return PostRepository.findByTitleContainingIgnoreCase(text);
+		return postRepository.findByTitleSearchTitle(text);
 	}
 	/*
 	public Post update(Post obj) {
