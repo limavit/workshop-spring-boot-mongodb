@@ -27,6 +27,9 @@ public class PostService {
 	}
 	public void delete(String id) {
 		PostRepository.deleteById(id);
+	} 
+	public List<Post> findByTitle(String text){
+		return PostRepository.findByTitleContainingIgnoreCase(text);
 	}
 	/*
 	public Post update(Post obj) {
